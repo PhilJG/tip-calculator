@@ -16,32 +16,39 @@ When reset is selected all the inputs are deleted
 
 */
 
-let e = Number(document.getElementById("entry").value);
-let entry = e.toFixed(2);
+let entry = document.getElementById("entry").value;
 
-const people = document.getElementById("people").value;
+// entry = entry.toFixed(2);
+
+let people = document.getElementById("people").value;
+
 const reset = document.getElementById("reset");
 
 // const tip = [0.05, 0.1, 0.15, 0.25, 0.5];
 const percent = document.getElementsByClassName("percentSelect");
 let active = document.getElementsByClassName("active");
-let value = 0;
+let tip = 0;
 
 const customPercent = document.querySelector(".customPercent");
-const customInput = document.querySelector(".customInput");
+const customInputValue = document.querySelector("#customInput").value;
 const customText = document.querySelector(".customText");
+
 //Select tip value
 
 function selectValue() {
-  value = this.value;
-  active = this.classList.toggle("active");
-  value = Number(value);
-  console.log(value);
+  tip = this.value;
+  tip = Number(tip);
 }
 
 for (let i = 0; i < percent.length; i++) {
-  percent[i].addEventListener("click", selectValue);
+  if (percent == percent[i] || customInputValue) {
+    percent[i].addEventListener("click", selectValue);
+  }
 }
+
+let customNumber = /[.](\d+)/;
+
+const customEntry = document.querySelector(".customInput");
 
 //Custom select
 const customSelect = function () {
@@ -50,26 +57,104 @@ const customSelect = function () {
 };
 
 customPercent.addEventListener("click", customSelect);
+console.log(customInputValue);
+
+//Check input
+
+// 1) I want both inputs(bill & people) to have the same functionality...
+// 	- When a number(with on decimal) is inputed the input highlights green (00.00 or 00)
+// 		- More detail regular expression required
+// 	- When a different value is input like a letter or sepcial symbol it highlights red
+// 		- Text will appear that says "Not a number"
+//    - checkInput function currently only removes hidden class from from enrtyInput BOTH inputs do not have a value
+//    - However the red border is changed if that single input is correct
+
+let numbers = /((((\d*)[.](\d+){1,2}))|(\d+))/;
+let empty = " ";
+
+// use querySelector instead of querySelectorAll.
+// Or use querySelectorAll("#id")[0],
+// or use m[0].classList
+
+let inputMessage = document.querySelectorAll("#input__message");
+
+const entryInput = document.getElementById("entry");
+const peopleInput = document.getElementById("people");
+
+function checkInput(i, ei, m) {
+  if (i.match(numbers)) {
+    ei.classList.add("inputCorrect");
+    ei.classList.remove("inputFalse");
+    inputMessage[m].classList.add("hidden");
+  } else if (!i.match(numbers) | i.match(empty)) {
+    ei.classList.add("inputFalse");
+    ei.style.border = "2px solid red";
+    inputMessage[m].classList.remove("hidden");
+  } else {
+    ei.classList.remove("inputFalse");
+    ei.classList.remove("inputCorrect");
+  }
+}
+let selectedPercent;
+
+checkInput(entry, entryInput, 0);
+
+checkInput(people, peopleInput, 1);
+
+Number(entry, entryInput, 0);
+Number(people, peopleInput, 1);
 
 //Calculate total amount
+// 2) Resulting values are calculated live.
+// 	- All values are reset on refrest or reset press
 
 let tipResult = document.querySelector(".result__total--tip");
 let billResult = document.querySelector(".result__total--bill");
 
 const totalCalc = function () {
-  console.log(value, typeof value);
-  console.log(entry, typeof entry);
-  console.log(people, typeof people);
-  let total = (entry / people).toFixed(2);
-  billResult.textContent = `$${total}`;
-  let tipTotal = ((entry * value) / people).toFixed(2);
-  tipResult.textContent = `$${tipTotal}`;
+  let total = Number(entry / people);
+  total.toFixed(2);
+
+  let tipTotal = Number(total * tip);
+  let tipTotalFixed = tipTotal.toFixed(2);
+
+  let billTotal = Number(total + tipTotal);
+  let billTotalFixed = billTotal.toFixed(2);
+
+  tipResult.textContent = `$${tipTotalFixed}`;
+  billResult.textContent = `$${billTotalFixed}`;
+
   console.log(
-    `Tip percent is ${value}%, Tip/person is ${tipTotal}, Total/person is ${total} `
+    "Total/person before tip is",
+    total,
+    typeof total,
+    "Tip/person is",
+    tipTotal,
+    typeof tipTotal,
+    "Total+tip/person is",
+    billTotalFixed,
+    typeof tipTotal
   );
 };
 
-reset.addEventListener("click", totalCalc);
+const resetPage = function () {
+  entry = 0;
+  tip = 0;
+  total = 0;
+
+  tipTotal = 0;
+  tipTotalFixed = 0;
+
+  billTotal = 0;
+  billTotalFixed = 0;
+};
+
+//reset the calculation
+window.addEventListener("click", totalCalc);
+
+//call the calculation
+entryInput.addEventListener("input", totalCalc);
+peopleInput.addEventListener("input", totalCalc);
 
 // function tipPersonTotal() {}
 

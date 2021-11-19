@@ -35,7 +35,10 @@
     </header>
     <main class="container">
       <section>
-        <h3>Bill</h3>
+        <div class="input__span">
+          <h3>Bill</h3>
+          <span id="input__message" class="hidden">Must be a number</span>
+        </div>
         <input id="entry" class="input__main" type="number" />
 
         <h3>Select Tip %</h3>
@@ -46,10 +49,12 @@
           <button class="percentSelect" value=".25">25%</button>
           <button class="percentSelect" value=".50">50%</button>
           <button class="customPercent" value="">Custom</button>
-          <input class="hidden customInput" type="number" />
+          <input id="customInput" class="percentSelect hidden" type="number" />
         </div>
-
-        <h3>Number of People</h3>
+        <div class="input__span">
+          <h3>Number of People</h3>
+          <span id="input__message" class="hidden">Must be a number</span>
+        </div>
         <input type="number" class="input__main" id="people" />
       </section>
 
