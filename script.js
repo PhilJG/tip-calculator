@@ -17,10 +17,12 @@ When reset is selected all the inputs are deleted
 */
 
 let entry = document.getElementById("entry").value;
+document.getElementById("entry").value = "";
 
 // entry = entry.toFixed(2);
 
 let people = document.getElementById("people").value;
+document.getElementById("people").value = "";
 
 const reset = document.getElementById("reset");
 
@@ -81,6 +83,8 @@ let inputMessage = document.querySelectorAll("#input__message");
 const entryInput = document.getElementById("entry");
 const peopleInput = document.getElementById("people");
 
+entryInput.textContent = "";
+
 function checkInput(i, ei, m) {
   if (i.match(numbers)) {
     ei.classList.add("inputCorrect");
@@ -90,9 +94,10 @@ function checkInput(i, ei, m) {
     ei.classList.add("inputFalse");
     ei.style.border = "2px solid red";
     inputMessage[m].classList.remove("hidden");
-  } else {
+  } else if (i.match(empty)) {
     ei.classList.remove("inputFalse");
     ei.classList.remove("inputCorrect");
+    inputMessage[m].classList.add("hidden");
   }
 }
 let selectedPercent;
@@ -150,7 +155,7 @@ const resetPage = function () {
 };
 
 //reset the calculation
-window.addEventListener("click", totalCalc);
+reset.addEventListener("click", totalCalc);
 
 //call the calculation
 entryInput.addEventListener("input", totalCalc);

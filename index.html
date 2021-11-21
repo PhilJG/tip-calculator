@@ -39,7 +39,12 @@
           <h3>Bill</h3>
           <span id="input__message" class="hidden">Must be a number</span>
         </div>
-        <input id="entry" class="input__main" type="number" />
+        <input
+          id="entry"
+          class="input__main"
+          placeholder="00.00"
+          type="number"
+        />
 
         <h3>Select Tip %</h3>
         <div id="tipSelect">
@@ -49,13 +54,18 @@
           <button class="percentSelect" value=".25">25%</button>
           <button class="percentSelect" value=".50">50%</button>
           <button class="customPercent" value="">Custom</button>
-          <input id="customInput" class="percentSelect hidden" type="number" />
+          <input
+            id="customInput"
+            class="percentSelect hidden"
+            type="number"
+            placeholder=".00%"
+          />
         </div>
         <div class="input__span">
           <h3>Number of People</h3>
           <span id="input__message" class="hidden">Must be a number</span>
         </div>
-        <input type="number" class="input__main" id="people" />
+        <input type="number" class="input__main" placeholder="0" id="people" />
       </section>
 
       <section class="result">

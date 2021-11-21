@@ -23,25 +23,16 @@ This is a solution to the [Tip calculator app challenge on Frontend Mentor](http
 Users should be able to:
 
 - View the optimal layout for the app depending on their device's screen size
-- See hover states for all interactive elements on the page
 - Calculate the correct tip and total cost of the bill per person
 
 ### Screenshot
 
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it.
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+![Desktop](.\complete\complete-desktop.png), [Mobile](.\complete\complete-mobile.png), [Desktop](.\complete\complete-active.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Tip Calculator Github](https://github.com/PhilJG/tip-calculator)
+- Live Site URL: [Tip Calculator Live Site](https://philjg.github.io/tip-calculator/)
 
 ## My process
 
@@ -52,61 +43,22 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- Vanilla Javascript
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
-
-To see how you can add code snippets, see below:
-
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
-
-```js
-const proudOfThisFunc = () => {
-  console.log("🎉");
-};
-```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+This was was the most challenging FE mento project yet. Despit it not being fully functional I learned alot about Javascript with this one. It would be difficult to pin down which part specifically because of it was quite new for me. And there is still much more imporvement needed which I may add later. I just feel like I got close enough with this one and one to move on to something new and fresh.
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+I need more practice in reseting the page and figuring out how to remove input fields on refresh. I also need to learn more about regex. Get better at laying out the program structure and logic before starting may help reduce the spagetti code which is abundant in this one.
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- [Jonas Schmedtmann](https://www.udemy.com/course/the-complete-javascript-course/) - His course has been my main guide on this javascript journey I can`t recommend his tutorials enough.
+- [Fireship - Regular Expressions (RegEx) in 100 Seconds](https://www.youtube.com/watch?v=sXQxhojSdZM) - This is tutorial was great to give me the quick and dirty regex syntax which clear up a pretty confusing concept.
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+- Website - [Phil J Gray](https://www.philjgray.ca)
+- Frontend Mentor - [@PhilJG](https://www.frontendmentor.io/profile/PhilJG)

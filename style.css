@@ -83,6 +83,7 @@ button {
   border-style: none;
   background-color: var(--strong-cyan);
 }
+
 /* Amount Input */
 .input__main {
   background-color: var(--light-grayish-cyan);
@@ -96,7 +97,6 @@ button {
 }
 
 .input__main:focus {
-  /* outline: 2px solid var(--strong-cyan); */
   outline: 2px solid var(--strong-cyan);
 }
 
