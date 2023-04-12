@@ -1,6 +1,6 @@
 export default function Result({ tip, bill, people }) {
     const tipResult = function () {
-        const tipr = (bill * tip) / people;
+        let tipr = (bill * tip) / people;
         if (isNaN(tipr)) {
             tipr = 0;
         }
@@ -8,17 +8,16 @@ export default function Result({ tip, bill, people }) {
     };
 
     const totalResult = function () {
-        const totlr = (bill + (bill * tip)) / people;
+        //should be the (total bill) + (tip % of total bill) / # of people ordering
+        let totlr = (bill + (bill * tip)) / people;
 
-        let total
+
 
         if (isNaN(totlr)) {
-            total = 0;
-        } else {
-            total = totlr
+            totlr = 0;
         }
 
-        return total;
+        return totlr;
     }
 
     return (
