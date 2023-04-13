@@ -7,7 +7,7 @@ import { useState } from 'react';
 function App() {
   const [bill, setBill] = useState(0.00);
   const [people, setPeople] = useState(0);
-  const [tip, setTip] = useState(0);
+  const [tip, setTip] = useState(0.00);
   // const [reset, setReset] = useState(false)
 
   const tipPercentage = [
@@ -19,17 +19,25 @@ function App() {
   ]
 
   function handleBill(e) {
-    setBill(e.target.value);
-
+    const value = parseFloat(e.target.value)
+    setBill(value);
   }
 
   function handlePeople(e) {
-    setPeople(e.target.value);
-
+    const value = parseFloat(e.target.value)
+    setPeople(value);
   }
 
   function handleTip(e) {
-    setTip(e.target.value)
+    const value = parseFloat(e.target.value)
+    setTip(value);
+  }
+
+  const handleReset = function () {
+    setBill(0);
+    setTip(0);
+    setPeople(0);
+    console.log(bill, tip, people);
 
   }
 
@@ -46,11 +54,16 @@ function App() {
         selectTip={handleTip}
         selectPeople={handlePeople}
         tipPercentage={tipPercentage}
+        handleReset={handleReset}
       />
       <Result
         bill={bill}
         people={people}
-        tip={tip} />
+        tip={tip}
+        setBill={setBill}
+        setPeople={setPeople}
+        setTip={setTip}
+        handleReset={handleReset} />
       <Attribution />
     </main>
   );

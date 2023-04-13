@@ -7,12 +7,13 @@ export default function Calculator({
     selectTip,
     selectPeople,
     tipPercentage,
+    handleReset
 }) {
 
     const tipButtons = tipPercentage.map((percentage, index) => (
         <button
             key={index}
-            className="percentSelect"
+            className={tip !== percentage ? "percentSelect" : "percentSelect:active"}
             value={percentage}
             onClick={selectTip}
         >
@@ -40,12 +41,12 @@ export default function Calculator({
                 {tipButtons}
                 <button className="customPercent" value="">Custom</button>
             </div>
+
             <input
                 id="customInput"
                 className="percentSelect hidden"
                 type="number"
                 placeholder={people}
-
             />
 
             <div className="input__span">

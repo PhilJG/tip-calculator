@@ -1,24 +1,26 @@
-export default function Result({ tip, bill, people }) {
+export default function Result({ tip, bill, people, handleReset }) {
+    let billNum = parseFloat(bill);
+    let peopleNum = parseInt(people);
+    let tipNum = parseFloat(tip);
+
     const tipResult = function () {
         let tipr = (bill * tip) / people;
         if (isNaN(tipr)) {
             tipr = 0;
         }
-        return tipr;
+        return tipr.toFixed(2);
     };
 
     const totalResult = function () {
-        //should be the (total bill) + (tip % of total bill) / # of people ordering
-        let totlr = (bill + (bill * tip)) / people;
-
-
+        let totlr = (billNum + (billNum * tipNum)) / peopleNum;
 
         if (isNaN(totlr)) {
             totlr = 0;
         }
 
-        return totlr;
+        return totlr.toFixed(2);
     }
+
 
     return (
         <section className="result">
@@ -37,7 +39,7 @@ export default function Result({ tip, bill, people }) {
                 <h1 className="result__total--bill">{totalResult()}</h1>
             </div>
 
-            <button id="reset">Reset</button>
+            <button id="reset" onClick={handleReset}>Reset</button>
         </section>
     );
 }
