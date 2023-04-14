@@ -3,7 +3,7 @@ import Attribution from './components/Attribution';
 import Calculator from './components/Calculator';
 import Result from './components/Result';
 import { useState } from 'react';
-import { logo } from './images/logo.svg'
+import { ReactComponent as Logo } from './images/logo.svg'
 
 function App() {
   const [bill, setBill] = useState(0.00);
@@ -47,9 +47,7 @@ function App() {
 
   return (
     <main>
-      <header>/get-started
-        <div className="logo"><img src="./images/logo.svg" alt="splitter-logo" ></img></div>
-      </header>
+      <Logo className="logo" />
       <div className='main__container'>
         <Calculator
           bill={bill}

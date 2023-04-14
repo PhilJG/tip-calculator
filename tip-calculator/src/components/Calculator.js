@@ -1,3 +1,6 @@
+import { ReactComponent as Dollar } from "../images/icon-dollar.svg";
+import { ReactComponent as Person } from "../images/icon-person.svg";
+
 
 export default function Calculator({
     bill,
@@ -26,13 +29,17 @@ export default function Calculator({
                 <h3>Bill</h3>
                 <span id="input__message" className="hidden">Must be a number</span>
             </div>
-            <input
-                id="entry"
-                className="input__main"
-                placeholder={bill}
-                type="number"
-                onChange={handleBill}
-            />
+            <div className="input__wrapper">
+
+                <input
+                    id="entry"
+                    className="input__main"
+                    placeholder={bill}
+                    type="number"
+                    onChange={handleBill}
+                />
+                <Dollar className="input__icon" />
+            </div>
 
             <h3>Select Tip %</h3>
 
@@ -52,8 +59,13 @@ export default function Calculator({
                 <h3>Number of People</h3>
                 <span id="input__message" className="hidden">Must be a number</span>
             </div>
+            <div className="input__wrapper">
 
-            <input type="number" className="input__main" placeholder="0" id="people" onChange={handlePeople} />
+                <input type="number" className="input__main" placeholder="0" id="people" onChange={handlePeople} />
+
+                <Person className="input__icon" />
+
+            </div>
         </section >
 
     )
