@@ -19,19 +19,21 @@ function App() {
   ]
 
   function handleBill(e) {
-    const value = parseFloat(e.target.value)
-    console.log(value);
+    // const value = parseFloat(e.target.value)
+    // console.log(value);
 
-    setBill(value);
+    setBill(e.target.value);
   }
 
   function handlePeople(e) {
     const value = parseFloat(e.target.value)
+
     setPeople(value);
   }
 
   function handleTip(e) {
     const value = parseFloat(e.target.value)
+    console.log(`tip value: ${tip}`);
     setTip(value);
   }
 
@@ -45,27 +47,30 @@ function App() {
 
   return (
     <main>
-      <header>
+      <header>/get-started
         <div className="logo"><img src="./images/logo.svg" alt="splitter-logo" ></img></div>
       </header>
-      <Calculator
-        bill={bill}
-        people={people}
-        tip={tip}
-        selectBill={handleBill}
-        selectTip={handleTip}
-        selectPeople={handlePeople}
-        tipPercentage={tipPercentage}
-        handleReset={handleReset}
-      />
-      <Result
-        bill={bill}
-        people={people}
-        tip={tip}
-        setBill={setBill}
-        setPeople={setPeople}
-        setTip={setTip}
-        handleReset={handleReset} />
+      <div className='main__container'>
+        <Calculator
+          bill={bill}
+          people={people}
+          tip={tip}
+          handleBill={handleBill}
+          handleTip={handleTip}
+          handlePeople={handlePeople}
+          tipPercentage={tipPercentage}
+          handleReset={handleReset}
+
+        />
+        <Result
+          bill={bill}
+          people={people}
+          tip={tip}
+          setBill={setBill}
+          setPeople={setPeople}
+          setTip={setTip}
+          handleReset={handleReset} />
+      </div>
       <Attribution />
     </main>
   );

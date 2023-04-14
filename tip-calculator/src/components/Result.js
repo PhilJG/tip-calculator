@@ -4,8 +4,8 @@ export default function Result({ tip, bill, people, handleReset }) {
     let tipNum = parseFloat(tip);
 
     const tipResult = function () {
-        let tipr = (bill * tip) / people;
-        if (isNaN(tipr) || tipr == Infinity) {
+        let tipr = (billNum * tipNum) / peopleNum;
+        if (isNaN(tipr) || tipr === Infinity) {
             tipr = 0;
         }
         return tipr.toFixed(2);
@@ -14,7 +14,7 @@ export default function Result({ tip, bill, people, handleReset }) {
     const totalResult = function () {
         let totlr = (billNum + (billNum * tipNum)) / peopleNum;
 
-        if (isNaN(totlr) || totlr == Infinity) {
+        if (isNaN(totlr) || totlr === Infinity) {
             totlr = 0;
         }
 

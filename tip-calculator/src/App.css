@@ -30,6 +30,24 @@ header {
   padding: 2rem 0 1.3rem 0;
 }
 
+.main__container {
+  display: grid;
+  grid-template-areas: 'calculator result';
+}
+
+.calculator {
+  grid-area: calculator;
+  display: flex;
+  flex-direction: column;
+}
+
+.result {
+  grid-area: result;
+  display: flex;
+  flex-direction: column;
+
+}
+
 /* Container */
 
 .container {
@@ -204,15 +222,42 @@ button {
 }
 
 @media (min-width: 960px) {
-  .container {
+
+  #root {
     display: flex;
-    flex-direction: row;
-    margin: 0 5%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
 
-  section {
-    width: 100%;
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 1000px;
   }
+
+  .main__container {
+    display: grid;
+    grid-template-areas: 'calculator result';
+    background-color: var(--white);
+
+  }
+
+  .calculator {
+    grid-area: calculator;
+  }
+
+  .result {
+    grid-area: result;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+
 
   #tipSelect {
     grid-template-columns: repeat(3, 33%);
