@@ -5,7 +5,7 @@ export default function Result({ tip, bill, people, handleReset }) {
 
     const tipResult = function () {
         let tipr = (bill * tip) / people;
-        if (isNaN(tipr)) {
+        if (isNaN(tipr) || tipr == Infinity) {
             tipr = 0;
         }
         return tipr.toFixed(2);
@@ -14,7 +14,7 @@ export default function Result({ tip, bill, people, handleReset }) {
     const totalResult = function () {
         let totlr = (billNum + (billNum * tipNum)) / peopleNum;
 
-        if (isNaN(totlr)) {
+        if (isNaN(totlr) || totlr == Infinity) {
             totlr = 0;
         }
 

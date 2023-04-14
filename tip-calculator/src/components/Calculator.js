@@ -7,9 +7,9 @@ export default function Calculator({
     selectTip,
     selectPeople,
     tipPercentage,
-    handleReset
+    billPlaceholder,
+    peoplePlaceholder
 }) {
-
     const tipButtons = tipPercentage.map((percentage, index) => (
         <button
             key={index}
@@ -21,41 +21,67 @@ export default function Calculator({
         </button>
     ));
 
+    const handleBillChange = e => {
+        if (e.target) {
+            const newBill = Number(e.target.value)
+            selectBill(newBill);
+            console.log(bill);
+
+        }
+    };
+
+    const handlePeopleChange = e => {
+        if (e.target) {
+            selectPeople(e.target.value);
+        }
+    };
+
     return (
         <section className="container calculator">
             <div className="input__span">
                 <h3>Bill</h3>
-                <span id="input__message" className="hidden">Must be a number</span>
+                <span id="input__message" className="hidden">
+                    Must be a number
+                </span>
             </div>
             <input
                 id="entry"
                 className="input__main"
-                placeholder={bill}
+                value={bill}
                 type="number"
-                onChange={selectBill}
+                onChange={handleBillChange}
             />
 
             <h3>Select Tip %</h3>
 
             <div id="tipSelect">
                 {tipButtons}
-                <button className="customPercent" value="">Custom</button>
+                <button className="customPercent" value="">
+                    Custom
+                </button>
             </div>
 
             <input
                 id="customInput"
                 className="percentSelect hidden"
                 type="number"
-                placeholder={people}
+            // value={people}
             />
 
             <div className="input__span">
                 <h3>Number of People</h3>
-                <span id="input__message" className="hidden">Must be a number</span>
+                <span id="input__message" className="hidden">
+                    Must be a number
+                </span>
             </div>
 
-            <input type="number" className="input__main" placeholder="0" id="people" onChange={selectPeople} />
-        </section >
-
-    )
+            <input
+                type="number"
+                className="input__main"
+                value={people}
+                id="people"
+                onChange={handlePeopleChange}
+            />
+        </section>
+    );
 }

@@ -3,12 +3,12 @@ import Attribution from './components/Attribution';
 import Calculator from './components/Calculator';
 import Result from './components/Result';
 import { useState } from 'react';
+import { logo } from './images/logo.svg'
 
 function App() {
   const [bill, setBill] = useState(0.00);
-  const [people, setPeople] = useState(0);
+  const [people, setPeople] = useState(1);
   const [tip, setTip] = useState(0.00);
-  // const [reset, setReset] = useState(false)
 
   const tipPercentage = [
     .05,
@@ -20,6 +20,8 @@ function App() {
 
   function handleBill(e) {
     const value = parseFloat(e.target.value)
+    console.log(value);
+
     setBill(value);
   }
 
@@ -34,17 +36,17 @@ function App() {
   }
 
   const handleReset = function () {
-    setBill(0);
-    setTip(0);
-    setPeople(0);
-    console.log(bill, tip, people);
-
+    setBill(0.00);
+    setTip(0.00);
+    setPeople(1);
+    document.getElementById("entry").value = { bill };
+    document.getElementById("people").value = { people };
   }
 
   return (
     <main>
       <header>
-        <div className="logo"><img src="./images/logo.svg"></img></div>
+        <div className="logo"><img src="./images/logo.svg" alt="splitter-logo" ></img></div>
       </header>
       <Calculator
         bill={bill}
