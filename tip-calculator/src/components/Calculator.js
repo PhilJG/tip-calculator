@@ -10,12 +10,14 @@ export default function Calculator({
     handlePeople,
     handleTip,
     tipPercentage,
+    entryRef, peopleRef, customClick
 }) {
+
 
     const tipButtons = tipPercentage.map((percentage, index) => (
         <button
             key={index}
-            className="percentSelect"
+            className={percentage === tip ? "percentSelect:focus " : "percentSelect"}
             value={percentage}
             onClick={handleTip}
         >
@@ -27,15 +29,15 @@ export default function Calculator({
         <section className="container calculator">
             <div className="input__span">
                 <h3>Bill</h3>
-                <span id="input__message" className="hidden">Must be a number</span>
+                <span id="input__message--bill" className="hidden">Must be a number</span>
             </div>
             <div className="input__wrapper">
 
                 <input
                     id="entry"
                     className="input__main"
-                    placeholder={bill}
-                    type="number"
+                    placeholder="0.00"
+                    type="number" ref={entryRef}
                     onChange={handleBill}
                 />
                 <Dollar className="input__icon" />
@@ -45,19 +47,17 @@ export default function Calculator({
 
             <div id="tipSelect">
                 {tipButtons}
-                <button className="customPercent" value="">Custom</button>
+                <button className="customPercent" onClick={customClick} >Custom</button>
+                <input
+                    id="customInput"
+                    className="percentSelect hidden"
+                    type="number"
+                />
             </div>
-            <input
-                id="customInput"
-                className="percentSelect hidden"
-                type="number"
-            // placeholder={people}
-
-            />
 
             <div className="input__span">
                 <h3>Number of People</h3>
-                <span id="input__message" className="hidden">Must be a number</span>
+                <span id="input__message--people" className="hidden">Can't be zero</span>
             </div>
             <div className="input__wrapper">
 

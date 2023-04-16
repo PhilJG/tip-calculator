@@ -9,6 +9,7 @@ function App() {
   const [bill, setBill] = useState(0.00);
   const [people, setPeople] = useState(1);
   const [tip, setTip] = useState(0.00);
+  const [customTip, setCustomTip] = useState("")
 
   const tipPercentage = [
     .05,
@@ -26,23 +27,49 @@ function App() {
   }
 
   function handlePeople(e) {
+    console.log(e);
+
     const value = parseFloat(e.target.value)
 
     setPeople(value);
   }
 
   function handleTip(e) {
-    const value = parseFloat(e.target.value)
+    const value = e.target.value
+    if (value === "custom") {
+      setTip("");
+    } else {
+      setTip(parseFloat(value))
+    }
     console.log(`tip value: ${tip}`);
-    setTip(value);
   }
 
+  const customClick = function () {
+    const customPercent = document.querySelector(".customPercent")
+    const customInput = document.querySelector("#customInput")
+
+    customPercent.classList.toggle("hidden");
+    customInput.classList.toggle("hidden");
+    setCustomTip("");
+  }
+
+
   const handleReset = function () {
-    setBill(0.00);
-    setTip(0.00);
-    setPeople(1);
-    document.getElementById("entry").value = { bill };
-    document.getElementById("people").value = { people };
+    if (people !== 0 || bill !== 0) {
+      setBill(0.00);
+      setTip(0.00);
+      setPeople(1);
+      customClick();
+      document.getElementById("entry").value = { bill };
+      document.getElementById("people").value = { people };
+    } else if (people === 0) {
+      const addMessage = document.querySelector("#input__message--people");
+      addMessage.classList.remove("hidden")
+    }
+    else if (bill === 0) {
+      const addMessage = document.querySelector("#input__message--bill");
+      addMessage.classList.remove("hidden")
+    }
   }
 
   return (
@@ -58,7 +85,8 @@ function App() {
           handlePeople={handlePeople}
           tipPercentage={tipPercentage}
           handleReset={handleReset}
-
+          customClick={customClick}
+          setCustomTip={setCustomTip}
         />
         <Result
           bill={bill}
